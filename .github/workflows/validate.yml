@@ -1,0 +1,28 @@
+name: Validate and package FREE TV
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate-and-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Check Python syntax
+        run: python -m py_compile plugin.video.iptvlegal/default.py
+      - name: Validate add-on XML
+        run: python -c "import xml.etree.ElementTree as ET; ET.parse('plugin.video.iptvlegal/addon.xml'); ET.parse('plugin.video.iptvlegal/resources/settings.xml')"
+      - name: Build installable ZIP
+        run: |
+          cd plugin.video.iptvlegal
+          zip -r ../plugin.video.iptvlegal-1.0.1.zip . -x '__pycache__/*' '*.pyc'
+      - name: Upload Kodi add-on ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: FREE-TV-Kodi-addon-1.0.1
+          path: plugin.video.iptvlegal-1.0.1.zip
+          if-no-files-found: error
