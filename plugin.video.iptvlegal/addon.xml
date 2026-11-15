@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.iptvlegal" name="FREE TV" version="1.0.1" provider-name="Community">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0" />
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="es_ES">FREE TV: listas M3U configurables para Kodi</summary>
+        <description lang="es_ES">FREE TV permite explorar y reproducir listas M3U configuradas por el usuario en Kodi. No aloja ni distribuye emisiones; el usuario configura fuentes de terceros y debe comprobar que cuenta con autorización para reproducirlas.</description>
+        <platform>all</platform>
+        <license>MIT</license>
+        <website>https://github.com/iptv-org/iptv</website>
+        <source>https://github.com/iptv-org/iptv</source>
+        <assets>
+            <icon>icon.png</icon>
+        </assets>
+    </extension>
+</addon>
