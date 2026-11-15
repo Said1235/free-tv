@@ -132,7 +132,7 @@ def parse_m3u(text: str) -> List[Dict[str, str]]:
         if line.startswith("#EXTINF:"):
             meta, separator, display_name = line.partition(",")
             attrs: Dict[str, str] = {}
-            for match in re.finditer(r"([\w-]+)\s*=\s*("[^"]*"|'[^']*'|[^\s]+)", meta):
+            for match in re.finditer(r"""([\w-]+)\s*=\s*("[^"]*"|'[^']*'|[^\s]+)""", meta):
                 attrs[match.group(1).lower()] = match.group(2).strip("\"'")
             name = (display_name.strip() if separator else "") or attrs.get("tvg-name") or "Canal sin nombre"
             pending_group = attrs.get("group-title", "").strip() or "Sin categoría"
