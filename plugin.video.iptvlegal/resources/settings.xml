@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<settings version="1">
+    <section id="plugin.video.iptvlegal">
+        <category id="general" label="General">
+            <group id="1">
+                <setting id="playlist_url" type="string" label="URL de la lista M3U">
+                    <default>https://iptv-org.github.io/iptv/index.m3u</default>
+                </setting>
+                <setting id="cache_seconds" type="integer" label="Caché de lista (segundos)" help="0 desactiva la caché.">
+                    <default>1800</default>
+                    <constraints>
+                        <minimum>0</minimum>
+                        <maximum>86400</maximum>
+                    </constraints>
+                </setting>
+                <setting id="user_agent" type="string" label="User-Agent HTTP (opcional)">
+                    <default>FREE TV Kodi Add-on/1.0.1</default>
+                </setting>
+            </group>
+        </category>
+    </section>
+</settings>
